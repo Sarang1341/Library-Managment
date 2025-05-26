@@ -1,0 +1,58 @@
+-- Create database
+CREATE DATABASE library_system;
+
+-- Use the database
+USE library_system;
+
+
+CREATE TABLE admin_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL -- You can hash the password for security
+);
+
+-- Insert a sample admin user
+INSERT INTO admin_users (username, password)
+VALUES ('admin', 'admin123'); -- Use hashed password in production!
+
+
+-- Create Student details table
+CREATE TABLE students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  username VARCHAR(50) UNIQUE,
+  password VARCHAR(100)
+);
+
+
+select *from students; 
+select *from product;
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255),
+    product_detail TEXT,
+    product_image VARCHAR(500)  -- store image URL/path as string
+);
+
+
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    description TEXT,
+    category VARCHAR(100),
+    image_path VARCHAR(255)
+);
+INSERT INTO books (name, description, category, image_path) VALUES
+('PostgreSQL', 'PostgreSQL: A comprehensive guide to building, programming, and administering PostgreSQL databases', 'Programming', 'image/image01.jpeg'),
+('AJAX', 'Ajax: Creating Web pages with asynchronous JavaScript and XML', 'Website', 'image/image02.jpeg'),
+('Web Application Architecture', 'Web Application Architecture: Principles, Protocols, and Practices', 'Website', 'image/image03.jpeg'),
+('Information Architecture', 'Information Architecture for the World Wide Web: Designing Large-Scale Web Sites', 'Computer', 'image/image04.jpeg'),
+('Producing Open Source Software', 'Producing Open Source Software: How to run a successful free software project', 'Linux', 'image/image05.jpeg');
+DELETE FROM books;
+select *from books;
+
+
+
+
